@@ -1,0 +1,31 @@
+@use '../../../_colors.scss' as *;
+
+.header {
+  font-family: 'Raleway';
+  background-color: $color-day-blue;
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 1px solid $color-night-blue;
+    &__title {
+      display: flex;
+      align-items: center;
+      font-size: 2em;
+      text-decoration: none;
+      margin-right: 20px;
+      color: white;
+    }
+    &__mobile-button {
+      background-color: $color-day-blue;
+      border: none;
+      svg {
+        width: 32px;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+@use '../../../_colors.scss' as *;
+
+.navigation {
+  display: flex;
+  gap: 20px;
+  a {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    &:hover {
+      color: $color-night-blue;
+      svg {
+        fill: $color-night-blue;
+      }
+    }
+    svg {
+      height: 16px;
+      fill: white;
+      padding-bottom: 1px;
+    }
+  }
+  &--mobile {
+    flex-direction: column;
+    border-bottom: 1px solid $color-night-blue;
+    padding: 20px;
+    gap: 10px;
+    background-color: white;
+    a {
+      color: $color-day-blue;
+      svg {
+        fill: $color-day-blue;
+      }
+    }
+  }
+}

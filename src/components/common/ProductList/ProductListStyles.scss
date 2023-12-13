@@ -1,0 +1,6 @@
+@use '../../../_colors.scss' as *;
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+}

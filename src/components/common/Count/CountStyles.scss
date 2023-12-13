@@ -1,0 +1,15 @@
+@use '../../../_colors.scss' as *;
+
+.count {
+  position: relative;
+  right: 9px;
+  top: -7px;
+  display: flex;
+  justify-content: center;
+  border-radius: 15px;
+  height: 15px;
+  width: 15px;
+  background-color: $color-red;
+  color: white;
+  font-size: 10px;
+}

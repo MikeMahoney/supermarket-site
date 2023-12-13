@@ -1,0 +1,31 @@
+@use '../../../_colors.scss' as *;
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  &__basket-button {
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    height: 30px;
+    font-weight: 600;
+    background-color: $color-day-blue;
+    color: white;
+    border-radius: 25px;
+    border: none;
+    svg {
+      height: 16px;
+      fill: white;
+      padding-bottom: 2px;
+    }
+    &:hover {
+      cursor: pointer;
+      color: $color-night-blue;
+      svg {
+        fill: $color-night-blue;
+      }
+    }
+  }
+}
