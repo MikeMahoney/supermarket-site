@@ -1,0 +1,27 @@
+@use '../../../../../_colors.scss' as *;
+
+.product-details-basket-button {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  height: 30px;
+  font-weight: 600;
+  background-color: $color-orange;
+  color: white;
+  border-radius: 25px;
+  border: none;
+  &--added {
+    background-color: $color-red;
+  }
+  svg {
+    height: 16px;
+    fill: white;
+    padding-bottom: 2px;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: $color-light-orange;
+  }
+}

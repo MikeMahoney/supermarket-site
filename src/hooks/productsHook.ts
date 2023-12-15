@@ -1,4 +1,5 @@
 import { type ProductDTO, fetchProducts } from 'api/productsApi'
+import { AxiosError } from 'axios'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
@@ -7,7 +8,7 @@ export type TProductHook = {
   isProductListLoading: boolean
 }
 
-// Get the list of missions
+// Get the list of products
 export const getProductList = (): TProductHook => {
   const [productList, setProductList] = useState<ProductDTO[]>([])
   const [isProductListLoading, setIsProductListLoading] = useState<boolean>(true)
@@ -20,8 +21,12 @@ export const getProductList = (): TProductHook => {
         }
         setIsProductListLoading(false)
       })
-      .catch(function () {
-        toast.error('Error: Fetching products')
+      .catch((error) => {
+        if (error instanceof AxiosError) {
+          toast.error(`Error: ${error.message}`)
+        } else {
+          toast.error('Error: Fetching products')
+        }
         setIsProductListLoading(false)
       })
   }, [])

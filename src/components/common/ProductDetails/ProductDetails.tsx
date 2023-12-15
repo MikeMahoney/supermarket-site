@@ -1,9 +1,9 @@
 import { type ProductDTO } from 'api/productsApi'
 import React from 'react'
 import './ProductDetailsStyles.scss'
-import { BasketIcon } from '../Icons/BasketIcon/BasketIcon'
-import { useAppDispatch } from 'hooks'
-import { addToBasket } from 'models/basket/basketSlice'
+import { useAppDispatch, useAppSelector } from 'hooks'
+import { addToBasket, removeFromBasket } from 'models/basket/basketSlice'
+import ProductDetailsBasketButton from './components/ProductDetailsBasketButton/ProductDetailsBasketButton'
 
 interface IProductDetails {
   product: ProductDTO
@@ -12,20 +12,36 @@ interface IProductDetails {
 const ProductDetails: React.FC<IProductDetails> = ({ product }) => {
   const { name, description, price } = product
   const dispatch = useAppDispatch()
+  const basketProductList = useAppSelector((state) => state.basket.productList)
+  const productInBasket: boolean = basketProductList.some(
+    (basketProduct) => basketProduct.id === product.id
+  )
 
   const onClickAddToBasket = (): void => {
-    dispatch(addToBasket(product))
+    if (productInBasket) {
+      dispatch(removeFromBasket(product))
+    } else {
+      dispatch(addToBasket(product))
+    }
   }
 
   return (
     <div className='product-details'>
-      <h3>{name}</h3>
-      <div>{description}</div>
-      <div>{price}</div>
-      <button className='product-details__basket-button' onClick={onClickAddToBasket}>
-        {'Add To Basket'}
-        <BasketIcon />
-      </button>
+      <header>
+        <h3 data-testid='product-name'>{name}</h3>
+      </header>
+      <section className='product-details__content'>
+        <div className='product-details__content__description' data-testid='product-description'>
+          {description}
+        </div>
+        <div className='product-details__content__price'>
+          <div data-testid='product-price'>{`£${price}`}</div>
+          <ProductDetailsBasketButton
+            onClick={onClickAddToBasket}
+            productInBasket={productInBasket}
+          />
+        </div>
+      </section>
     </div>
   )
 }

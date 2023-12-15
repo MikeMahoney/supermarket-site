@@ -1,5 +1,6 @@
 import { type ProductDTO } from 'api/productsApi'
 import React from 'react'
+import './ProductListStyles.scss'
 import ProductDetails from '../ProductDetails/ProductDetails'
 
 interface IProductList {

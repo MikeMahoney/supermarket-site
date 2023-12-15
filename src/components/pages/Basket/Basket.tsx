@@ -7,7 +7,12 @@ const Basket: React.FC = () => {
 
   return (
     <div className='basket'>
-      <ProductList productList={productList} />
+      <h2>{'Basket'}</h2>
+      {productList.length > 0 ? (
+        <ProductList productList={productList} />
+      ) : (
+        'No products added to basket'
+      )}
     </div>
   )
 }

@@ -13,13 +13,14 @@ export const basketSlice = createSlice({
   name: 'basket',
   initialState,
   reducers: {
-    addToBasket: (state, action: PayloadAction<ProductDTO>) => {
-      const product: ProductDTO = action.payload
-      state.productList.push(product)
-    },
-    removeFromBasket: (state, action) => {
-      console.log(action)
-    }
+    addToBasket: (state, action: PayloadAction<ProductDTO>) => ({
+      ...state,
+      productList: [...state.productList, action.payload]
+    }),
+    removeFromBasket: (state, action) => ({
+      ...state,
+      productList: state.productList.filter((product) => product.id !== action.payload.id)
+    })
   }
 })
 
