@@ -1,3 +1,4 @@
+@use '../../../_animations.scss' as *;
 @use '../../../_colors.scss' as *;
 
 .product-details {
@@ -5,6 +6,7 @@
   flex-direction: column;
   width: 45%;
   min-width: 300px;
+  animation: fadeIn 2s;
   header {
     color: white;
     background-color: $color-day-blue;
