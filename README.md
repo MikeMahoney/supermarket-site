@@ -29,5 +29,6 @@ $ npm start
 
 ## Notes
 
+- Tests added to ProductDetails component
 - Given more time I'd make the ProductsDetailsBasketButton a generic Button component that has text/icon/onclick props
 - Icons sourced from https://www.reshot.com/free-svg-icons/
